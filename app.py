@@ -1,8 +1,13 @@
+'''
+Assignment 1, Seng 360
+Luke Mclaren V00763009
+'''
+
 import rsa
 import time
 
 def validate():
-
+	#Public Key
 	public_key = '-----BEGIN RSA PUBLIC KEY-----\nMEgCQQDoTcl289XVSXh1PEgMl4rlXN73ycB3GvEyqb9VXMocsFJ2aBvH9gGTJNxy\nx0WH7hAXhuAfRiS5WQpZ+sUKlXFzAgMBAAE=\n-----END RSA PUBLIC KEY-----\n'
 	signature = ''
 
@@ -20,6 +25,7 @@ def validate():
 		signature = signature+line
 
 	try:
+		#Verification step
 		rsa.verify(date, signature, public_key)
 		date = time.strptime(date, "%d/%m/%Y")
 		if date > time.localtime():
